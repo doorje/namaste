@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      name: namaste-uaa
+      uri: ${vcap.services.namaste-config-service.credentials.uri}
+
+
+
