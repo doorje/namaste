@@ -18,12 +18,7 @@ public class NamasteUserServiceApplication {
         SpringApplication.run(NamasteUserServiceApplication.class, args);
     }
 
-    @RequestMapping("/")
-    public Message home() {
-        return new Message("Namaste from Sarangkot!");
-    }
-
-    @RequestMapping({"/user"})
+    @RequestMapping({"/"})
     @ResponseBody
     public Map<String, String> user(Principal principal) {
         Map<String, String> map = new LinkedHashMap<>();
@@ -31,6 +26,18 @@ public class NamasteUserServiceApplication {
         return map;
     }
 
+    @RequestMapping({"/profile"})
+    @ResponseBody
+    public Map<String, String> profile(Principal principal) {
+        Map<String, String> map = new LinkedHashMap<>();
+        map.put("name", principal.getName());
+        return map;
+    }
+
+    @RequestMapping("/message")
+    public Message message() {
+        return new Message("Namaste from Sarangkot!");
+    }
 }
 
 class Message {
