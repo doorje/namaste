@@ -1,7 +1,8 @@
-package com.mahen.doorje.namaste.client;
+package com.mahen.doorje.namaste.client.api.namaste;
 
-import com.mahen.doorje.namaste.client.api.namaste.Message;
-import com.mahen.doorje.namaste.client.api.namaste.Profile;
+import com.mahen.doorje.namaste.client.NamasteRequectInterceptor;
+import com.mahen.doorje.namaste.client.api.namaste.user.Message;
+import com.mahen.doorje.namaste.client.api.namaste.user.Profile;
 import feign.RequestInterceptor;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;

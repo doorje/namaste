@@ -1,4 +1,4 @@
-package com.mahen.doorje.namaste.client.api.namaste;
+package com.mahen.doorje.namaste.client.api.namaste.user;
 
 import lombok.Data;
 

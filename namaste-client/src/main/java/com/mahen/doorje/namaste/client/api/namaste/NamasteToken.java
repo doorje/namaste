@@ -1,4 +1,4 @@
-package com.mahen.doorje.namaste.client;
+package com.mahen.doorje.namaste.client.api.namaste;
 
 public class NamasteToken {
     private String token;

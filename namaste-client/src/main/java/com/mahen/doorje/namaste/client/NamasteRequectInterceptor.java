@@ -1,5 +1,6 @@
 package com.mahen.doorje.namaste.client;
 
+import com.mahen.doorje.namaste.client.api.namaste.NamasteToken;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

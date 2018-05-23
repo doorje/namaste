@@ -1,6 +1,6 @@
 package com.mahen.doorje.namaste.client;
 
-import com.mahen.doorje.namaste.client.api.namaste.Namaste;
+import com.mahen.doorje.namaste.client.api.namaste.NamasteClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
