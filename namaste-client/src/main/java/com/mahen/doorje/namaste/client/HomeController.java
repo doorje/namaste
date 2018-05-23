@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    private Namaste namaste;
+    private NamasteClient namaste;
 
     @Autowired
-    public HomeController(Namaste namaste) {
+    public HomeController(NamasteClient namaste) {
         this.namaste = namaste;
     }
 
