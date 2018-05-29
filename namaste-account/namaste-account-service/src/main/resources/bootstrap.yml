@@ -1,5 +1,5 @@
 spring:
   cloud:
     config:
-      name: namaste-user-service
+      name: namaste-account-service
       uri: ${vcap.services.namaste-config-service.credentials.uri}

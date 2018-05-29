@@ -1,27 +1,25 @@
 package com.mahen.doorje.namaste.client.api.namaste;
 
-import com.mahen.doorje.namaste.client.NamasteRequectInterceptor;
-import com.mahen.doorje.namaste.client.api.namaste.user.Message;
-import com.mahen.doorje.namaste.client.api.namaste.user.Profile;
+import com.mahen.doorje.namaste.client.NamasteRequestInterceptor;
+import feign.Logger;
 import feign.RequestInterceptor;
+import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(name = "namaste-edge", configuration = NamasteClient.NamasteConfiguration.class)
 public interface NamasteClient {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/user/profile")
-    Profile getProfile();
-
-    @RequestMapping(method = RequestMethod.GET, value = "/user/message")
-    Message getMessage();
+    @RequestMapping(method = RequestMethod.GET, value = "/account/{accountId}")
+    NamasteAccount getAccount(@PathVariable("accountId") String accountId);
 
     class NamasteConfiguration {
         @Bean
         RequestInterceptor requestInterceptor() {
-            return new NamasteRequectInterceptor();
+            return new NamasteRequestInterceptor();
         }
     }
 }
