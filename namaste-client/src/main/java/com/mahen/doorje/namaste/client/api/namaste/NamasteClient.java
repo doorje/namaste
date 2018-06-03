@@ -1,9 +1,7 @@
 package com.mahen.doorje.namaste.client.api.namaste;
 
-import com.mahen.doorje.namaste.client.NamasteRequestInterceptor;
-import feign.Logger;
+import com.mahen.doorje.namaste.client.web.dto.NamasteAccountDto;
 import feign.RequestInterceptor;
-import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface NamasteClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/account/{accountId}")
-    NamasteAccount getAccount(@PathVariable("accountId") String accountId);
+    NamasteAccountDto getAccount(@PathVariable("accountId") String accountId);
 
     class NamasteConfiguration {
         @Bean

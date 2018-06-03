@@ -27,7 +27,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/account/create").authorizeRequests().antMatchers("/account/create").permitAll();
+        http.antMatcher("/account").authorizeRequests()
+                .antMatchers("/account/create", "/account/exists/**").permitAll()
+                .anyRequest().authenticated();
     }
 
     @Bean

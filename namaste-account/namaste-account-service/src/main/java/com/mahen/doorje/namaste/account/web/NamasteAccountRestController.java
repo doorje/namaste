@@ -56,6 +56,17 @@ public class NamasteAccountRestController {
                 .orElseThrow(() -> new NamasteAccountNotFoundException(accountId));
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/exists/{email}")
+    ResponseEntity<String> emailExists(@PathVariable String email) {
+
+        NamasteAccountEntry account = accountRepository.findByEmail(email);
+        if(account != null) {
+            return ResponseEntity.ok(email);
+        } else {
+            throw new NamasteAccountNotFoundException(email);
+        }
+    }
+
     @RequestMapping(method = RequestMethod.POST, value = "/create")
     ResponseEntity<?> create(@RequestBody NamasteAccountDto accountDto) {
         String id = UUID.randomUUID().toString();

@@ -1,4 +1,4 @@
-package com.mahen.doorje.namaste.client;
+package com.mahen.doorje.namaste.client.api.namaste;
 
 import com.mahen.doorje.namaste.client.api.namaste.NamasteToken;
 import feign.RequestInterceptor;

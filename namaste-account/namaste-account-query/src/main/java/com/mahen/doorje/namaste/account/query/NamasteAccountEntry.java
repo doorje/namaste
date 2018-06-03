@@ -15,7 +15,7 @@ public class NamasteAccountEntry {
     private String email;
     private String password;
 
-    private boolean enabled;
+    private boolean enabled = false;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "namaste_accounts_roles",

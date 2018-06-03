@@ -30,7 +30,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/create").authorizeRequests().antMatchers("/create").permitAll();
+        http.antMatcher("/").authorizeRequests()
+                .antMatchers("/create", "/exists/**").permitAll()
+                .anyRequest().authenticated();
     }
 
     @Bean
