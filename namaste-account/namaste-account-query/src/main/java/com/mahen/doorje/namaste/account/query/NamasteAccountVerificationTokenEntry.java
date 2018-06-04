@@ -13,6 +13,8 @@ public class NamasteAccountVerificationTokenEntry {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String identifier;
+
     private String token;
 
     @OneToOne(targetEntity = NamasteAccountEntry.class, fetch = FetchType.EAGER)
@@ -25,12 +27,11 @@ public class NamasteAccountVerificationTokenEntry {
     private NamasteAccountVerificationTokenEntry() {
     }
 
-    public NamasteAccountVerificationTokenEntry(final String token) {
-
-    }
-
-    public NamasteAccountVerificationTokenEntry(final String token, final NamasteAccountEntry account) {
-
+    public NamasteAccountVerificationTokenEntry(final String identifier, final NamasteAccountEntry account, final String token) {
+        this.identifier = identifier;
+        this.account = account;
+        this.token = token;
+        this.expiryDate = calculateExpiryDate(EXPIRATION);
     }
 
     public Long getId() {
@@ -39,6 +40,14 @@ public class NamasteAccountVerificationTokenEntry {
 
     public void setId(final Long id) {
         this.id = id;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(final String identifier) {
+        this.identifier = identifier;
     }
 
     public String getToken() {

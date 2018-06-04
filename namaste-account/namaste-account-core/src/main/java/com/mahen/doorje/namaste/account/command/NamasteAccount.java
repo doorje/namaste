@@ -1,7 +1,6 @@
 package com.mahen.doorje.namaste.account.command;
 
-import com.mahen.doorje.namaste.account.api.NamasteAccountCreatedEvent;
-import com.mahen.doorje.namaste.account.api.CreateNamasteAccountCommand;
+import com.mahen.doorje.namaste.account.api.*;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.AggregateIdentifier;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -13,12 +12,13 @@ import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 public class NamasteAccount {
 
     @AggregateIdentifier
-    private String accountId;
+    private AccountId accountId;
+
     private String email;
     private String password;
 
     @SuppressWarnings("unused")
-    private NamasteAccount() {
+    public NamasteAccount() {
     }
 
     @CommandHandler

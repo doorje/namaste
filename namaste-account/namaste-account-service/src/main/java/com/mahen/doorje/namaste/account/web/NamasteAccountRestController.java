@@ -1,5 +1,6 @@
 package com.mahen.doorje.namaste.account.web;
 
+import com.mahen.doorje.namaste.account.api.AccountId;
 import com.mahen.doorje.namaste.account.api.CreateNamasteAccountCommand;
 import com.mahen.doorje.namaste.account.query.NamasteAccountEntry;
 import com.mahen.doorje.namaste.account.query.NamasteAccountRepository;
@@ -69,13 +70,13 @@ public class NamasteAccountRestController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/create")
     ResponseEntity<?> create(@RequestBody NamasteAccountDto accountDto) {
-        String id = UUID.randomUUID().toString();
+        AccountId id = new AccountId();//UUID.randomUUID().toString();
         CreateNamasteAccountCommand command =
                 new CreateNamasteAccountCommand(id , accountDto.getEmail(), passwordEncoder.encode(accountDto.getPassword()));
 
         commandGateway.send(command);
 
-        NamasteAccountEntry accountEntry = this.accountRepository.findByAccountId(id).get();
+        NamasteAccountEntry accountEntry = this.accountRepository.findByAccountId(id.toString()).get();
         Link link = new NamasteAccountResource(accountEntry).getLink(Link.REL_SELF);
 
         return ResponseEntity.created(URI.create(link.getHref())).build();

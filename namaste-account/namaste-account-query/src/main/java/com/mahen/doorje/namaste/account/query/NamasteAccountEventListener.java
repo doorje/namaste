@@ -18,7 +18,7 @@ public class NamasteAccountEventListener {
     @EventHandler
     public void on(NamasteAccountCreatedEvent event) {
         repository.save(new NamasteAccountEntry(
-                event.getAccountId(),
+                event.getAccountId().getIdentifier(),
                 event.getEmail(),
                 event.getPassword()));
     }
