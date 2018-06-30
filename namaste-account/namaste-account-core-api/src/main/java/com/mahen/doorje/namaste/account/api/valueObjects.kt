@@ -16,3 +16,10 @@ data class TokenId(val identifier: String = IdentifierFactory.getInstance().gene
         private const val serialVersionUID = -2521069615900157076L
     }
 }
+
+data class MailId(val identifier: String = IdentifierFactory.getInstance().generateIdentifier()) : Serializable {
+
+    companion object {
+        private const val serialVersionUID = -2521069615900157076L
+    }
+}

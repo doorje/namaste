@@ -4,6 +4,7 @@ import org.axonframework.commandhandling.TargetAggregateIdentifier
 
 abstract class AccountCommand(@TargetAggregateIdentifier open val accountId: AccountId)
 abstract class TokenCommand(@TargetAggregateIdentifier open val tokenId:TokenId)
+abstract class MailCommand(@TargetAggregateIdentifier open val mailId:MailId)
 
 data class CreateNamasteAccountCommand (
         override val accountId: AccountId,

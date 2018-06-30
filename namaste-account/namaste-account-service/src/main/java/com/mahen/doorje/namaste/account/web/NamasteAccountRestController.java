@@ -76,7 +76,7 @@ public class NamasteAccountRestController {
 
         commandGateway.send(command);
 
-        NamasteAccountEntry accountEntry = this.accountRepository.findByAccountId(id.toString()).get();
+        NamasteAccountEntry accountEntry = this.accountRepository.findByAccountId(id.getIdentifier()).get();
         Link link = new NamasteAccountResource(accountEntry).getLink(Link.REL_SELF);
 
         return ResponseEntity.created(URI.create(link.getHref())).build();

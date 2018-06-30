@@ -1,5 +1,6 @@
 package com.mahen.doorje.namaste.account.command;
 
+import com.mahen.doorje.namaste.account.api.AccountVerificationTokenCreatedEvent;
 import com.mahen.doorje.namaste.account.api.CreateAccountVerificationTokenCommand;
 import com.mahen.doorje.namaste.account.api.NamasteAccountCreatedEvent;
 import com.mahen.doorje.namaste.account.api.TokenId;
@@ -25,5 +26,10 @@ public class AccountVerificationListener {
         TokenId tokenId = new TokenId();
         String token = UUID.randomUUID().toString();
         commandGateway.send(new CreateAccountVerificationTokenCommand(tokenId, event.getAccountId(), token));
+    }
+
+    @EventHandler
+    public void on(AccountVerificationTokenCreatedEvent event) {
+
     }
 }
